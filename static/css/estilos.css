@@ -1,0 +1,216 @@
+form input[type="text"].large, .form input[type="text"].large, form input[type="password"].large, .form input[type="password"].large, form input[type="date"].large, .form input[type="date"].large, form input[type="datetime"].large, .form input[type="datetime"].large, form input[type="email"].large, .form input[type="email"].large, form input[type="number"].large, .form input[type="number"].large, form input[type="search"].large, .form input[type="search"].large, form input[type="tel"].large, .form input[type="tel"].large, form input[type="time"].large, .form input[type="time"].large, form input[type="url"].large, .form input[type="url"].large, form select.large, .form select.large, form textarea.large, .form textarea.large {
+font-size: 1.1em;
+}
+body > section.landing h1 {
+        
+        color: #0588c0;
+    }
+
+body > header .logo {
+            margin-top: .01em;
+            margin-right: .01em;
+            max-height: 4em; }
+
+body > footer img {
+            height: 2em;
+            position: relative;
+            top: 0.1em;
+            left: 0.1em; }
+     
+
+section.landing input {
+            border-radius: 1px 0px 0px 1px !important;
+            height: 48px;}
+
+section.landing button {
+            border-radius: 0px 1px 1px 0px !important;
+            height: 48px;}
+
+
+#videoFenix .row{
+    width: 100%;}
+
+.button.large, button.large {
+            font-size: 1.3em;}
+.training{
+    background: url(../images/gym.jpg) no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    }
+.bgCuadros1{
+    background-image: url(../assets/shattered-dark.png);}
+.bgCirculo1{
+    background-color: #038c9e;
+    background-image: url(../assets/swirl.png);}
+
+.bgBonito{
+    background-color: #ffffff;
+    background-image: url(../assets/mirrored-squares.png);}
+.bgBrian{
+    background-image: url(../assets/gplay.png);}
+
+.bgRuido{
+    background-color: #ecf0f1;
+    background-image: url(../assets/subtle-zebra-3d.png);}
+
+#owl-Programas .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#bar{
+  width: 0%;
+  max-width: 100%;
+  height: 4px;
+  background: #0588c0;
+}
+
+#progressBar{
+  width: 100%;
+  background: #EDEDED;
+}
+
+.embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.Galeria{
+    padding-top: 2em;
+    }
+
+.Galeria i{
+    color: #0588c0;
+    font-size: 4.7em;
+    font-style: normal;
+    -webkit-transition:all 1s ease-out;  /* Chrome y Safari */
+    -o-transition:all 1s ease-out;  /* Opera */
+    -moz-transition:all 1s ease-out;  /* Mozilla Firefox */
+    -ms-transition:all 1s ease-out;   /* Internet Explorer */
+    transition:all 1s ease-out;  /* W3C */
+    }
+.Galeria i:hover{
+    color: #3CAEE0;
+    }
+.icon.facebook-sign:hover{
+    color: rgb(15, 0, 184);
+    }
+
+#cabezera .item img{
+    display: block;     
+    width: 100%;
+    height: auto;
+}
+        
+#sociallinks a i{
+    font-size: 2.2em;
+    font-style: normal;
+    padding-right: .1em;
+    -webkit-transition:all 1s ease-out;
+    -o-transition:all 1s ease-out;
+    -moz-transition:all 1s ease-out; 
+    -ms-transition:all 1s ease-out; 
+    transition:all 1s ease-out;
+    
+}
+#sociallinks a:hover{
+    color: #34495E;
+}
+#mapFenix{
+    height: 320px;
+    max-height: 320px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1199px){
+    body > section.landing h1 {
+        font-size: 6em;
+        color: #0588c0;
+    }
+    body > section.landing h2 {
+        font-size: 3em;
+        }
+    #videoFenix .row{
+        width: 100%;}
+    .training{
+        -webkit-background-size: cover ;
+        -moz-background-size: cover ;
+        -o-background-size: cover ;
+        background-size: cover ;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px){
+    body > section.landing h1 {
+        font-size: 6em;
+        color: #0588c0;
+    }
+        body > section.landing h2 {
+        font-size: 3em;
+    }
+    #videoFenix .row{
+            width: 100%;}
+    .training{
+        -webkit-background-size: cover ;
+        -moz-background-size: cover ;
+        -o-background-size: cover ;
+        background-size: cover ;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    body > header .logo {
+                margin-top: .01em;
+                margin-right: .01em;
+                max-height: 7em; }
+    body > section.landing h1 {
+        font-size: 3em;
+        color: #0588c0;
+    }
+    body > section.landing h2 {
+        font-size: 2em;
+    }
+    #videoFenix .row{
+                width: 100%;}
+    .training{
+        -webkit-background-size: cover ;
+        -moz-background-size: cover ;
+        -o-background-size: cover ;
+        background-size: cover ;
+    }
+}
+@media only screen and (max-width: 479px){
+    body > header .logo {
+                margin-top: .01em;
+                margin-right: .01em;
+                max-height: 7em; }
+    body > section.landing h1 {
+            font-size: 3em;
+            color: #0588c0;
+        }
+    body > section.landing h2 {
+            font-size: 2em;
+    }
+    #videoFenix .row{
+            width: 100%;}
+    .training{
+        background: url(../images/gym.jpg) no-repeat;
+        -webkit-background-size: cover ;
+        -moz-background-size: cover ;
+        -o-background-size: cover ;
+        background-size: cover ;
+    }
+}
+@media only screen and (max-width: 342px){
+    .training{
+        background: url(../images/gym.jpg) no-repeat;
+        -webkit-background-size: cover ;
+        -moz-background-size: cover ;
+        -o-background-size: cover ;
+        background-size: cover ;
+    }
+}

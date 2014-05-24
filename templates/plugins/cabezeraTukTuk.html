@@ -1,0 +1,29 @@
+    <header class="bck margin-top margin-bottom" itemscope itemtype="http://schema.org/Organization">
+        <div class="row">
+            <div class="column_6">
+                <img itemprop="image" src="{{MEDIA_URL}}{{instance.logo}}" class="logo on-left" />
+                <div class="vcard">
+
+                <h2 class="text italic thin url fn org" itemprop="name"> {{instance.titulo}} </h2></div>
+            </div>  
+            <nav class="column_6 text right">
+                {% if instance.boton1 %}
+                    {%if instance.icono1 or instance.texto1 %}
+                      <a href="{{instance.href1}}" class="{{instance.clase1}}"><span class="icon {{instance.icono1}}"></span>{{instance.texto1}}</a>
+                    {%endif%}
+                {%endif%}
+                
+                {% if instance.boton2 %}
+                    {%if instance.icono2 or instance.texto2 %}
+                      <a href="{{instance.href2}}" class="{{instance.clase2}}"><span class="icon {{instance.icono2}}"></span>{{instance.texto2}}</a>
+                    {%endif%}
+                {%endif%}
+
+                {% if instance.boton3 %}
+                    {%if instance.icono3 or instance.texto3 %}
+                      <a href="{{instance.href3}}" class="{{instance.clase3}}"><span class="icon {{instance.icono3}}"></span>{{instance.texto3}}</a>
+                    {%endif%}
+                {%endif%}
+            </nav>
+        </div>
+    </header>
