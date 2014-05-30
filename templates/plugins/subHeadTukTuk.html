@@ -1,0 +1,21 @@
+    <section id="cabezera" class="bck theme landing text center training" itemscope itemtype="http://schema.org/Organization" {%if instance.fondo%}style="background: url({{MEDIA_URL}}{{instance.fondo}}) no-repeat;" {%endif%} >
+        <div class="row">
+            <div class="column_10 offset_1">
+                <h1>{{instance.titulo|safe}}</h1>
+                <h2 class="margin-bottom">{{instance.encabezado|safe}}</h2>
+            </div>
+            {%if instance.correo%}
+            <div class="column_6 offset_3 form subscribe">
+                    <form action='.'  method='POST' >
+                        {% csrf_token %}
+                        <input required name ="msg" type="email" id="mail" class="large" placeholder="{{instance.placeholderEmail}}">
+                        <button name="eviarCorreo" class="button large icon envelope " ><span class="tip-right" data-tip="Click para enviar!"></span></button>
+                        {%if instance.subtexto%}
+                        <h5 class="text book" itemprop="description"><strong>{{instance.subtexto}}</strong></h5>
+                        {%endif%}
+                    </form>
+            </div>
+            {%endif%}
+
+        </div>
+    </section>

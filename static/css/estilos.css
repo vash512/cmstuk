@@ -33,7 +33,7 @@ section.landing button {
 .button.large, button.large {
             font-size: 1.3em;}
 .training{
-    background: url(../images/gym.jpg) no-repeat;
+    background: url(../assets/shattered-dark.png) no-repeat;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
@@ -198,7 +198,7 @@ section.landing button {
     #videoFenix .row{
             width: 100%;}
     .training{
-        background: url(../images/gym.jpg) no-repeat;
+        background: url(../assets/shattered-dark.png) no-repeat;
         -webkit-background-size: cover ;
         -moz-background-size: cover ;
         -o-background-size: cover ;
@@ -207,7 +207,7 @@ section.landing button {
 }
 @media only screen and (max-width: 342px){
     .training{
-        background: url(../images/gym.jpg) no-repeat;
+        background: url(../assets/shattered-dark.png) no-repeat;
         -webkit-background-size: cover ;
         -moz-background-size: cover ;
         -o-background-size: cover ;

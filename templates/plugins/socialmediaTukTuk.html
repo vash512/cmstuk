@@ -1,0 +1,60 @@
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=504922086287468";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <section id="socialmedia" class="bck dark padding-none text center bgBrian">
+        <div class="row padding-none">
+            {%if instance.videoYT%}
+            <div id="FFCvid" class="column_8 padding-none margin-none">
+               
+                <iframe width="720" height="480" src="{{instance.videoYT}}&theme=light&color=white&autoplay=1&loop=1&rel=0&" frameborder="0" allowfullscreen></iframe>
+            </div>
+            {%endif%}
+            <div class="column_4 padding-top padding-bottom">
+                    <h2 class="hide-tablet hide-phone">¡Únete a nuestras Redes Sociales!</h2>
+                    {%if instance.twitter%}
+                    <div class=" hide-tablet hide-phone">
+                        <br />
+                        <a href="https://twitter.com/{{instance.twitter}}" class="twitter-follow-button " data-show-count="true" data-dnt="true">Follow @instance.twitter</a>
+                    </div>
+                    <p>¿Quieres Twittearlo? Adelante da clic aquí: </p>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ request.get_full_path }}" data-text="{{instance.twitterText}}" data-via="{{instance.via}}" data-lang="{{instance.idioma.codigo}}">Twittear </a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    <br />
+                    {%endif%}
+                    <script src="https://apis.google.com/js/platform.js"></script>
+                    <p>Suscribete al Canal de Youtube:</p>
+                    <div class="g-ytsubscribe" data-channel="{{instance.canal}}" data-layout="default" data-count="default"></div>
+                    <br />
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone"></div>
+
+                    <!-- Place this tag after the last +1 button tag. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'es-419'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/platform.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+                    <p>¡Siguenos en Facebook!</p>
+                    <div class="fb-like" data-href="{{instance.facebook}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+                    <p id="sociallinks">
+                        <a href="{{instance.facebook}}" target="_blank" ><i class="icon facebook-sign" title="Facebook"></i></a>
+                        <a href="https://twitter.com/{{instance.twitter}}" target="_blank"><i class="icon twitter-sign" title="Twitter"></i></a>
+                        <a href="https://www.youtube.com/user/{{instance.canal}}" target="_blank"><i class="icon video" title="Youtube"></i></a>
+                        <a href="{{instance.foursquare}}" target="_blank"><i class="icon check" title="Foursquare"></i></a>
+                        <a href="{{instance.googleplus}}" target="_blank"><i class="icon google-plus-sign" title="Google+" ></i></a>
+                    </p>    
+            </div>
+        </div>
+    </section>

@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'cms',
     'mptt',
     'menus',
-    #'south',
+    'south',
     'sekizai',
     'cms.plugins.file',
     'cms.plugins.flash',
@@ -141,3 +141,9 @@ CMS_TEMPLATES = (
     ## Customize this
     ('landingTukTuk.html', 'Landing Tuk Tuk'),
 )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'phyrox.vash512@gmail.com'
+EMAIL_HOST_PASSWORD = 'phyrox.rock513'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
