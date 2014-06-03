@@ -4,9 +4,14 @@ from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template
 from cms.plugin_pool import plugin_pool
+
 from cmsTuk.models import headerPlugin as headerPluginModel
 from cmsTuk.models import cabezeraPlugin as cabezeraPluginModel
 from cmsTuk.models import socialmediaPlugin as socialmediaPluginModel
+
+from cmsTuk.models import bloqueCarroM, carroManual
+from inline_ordering.admin import OrderableStackedInline
+
 from django.utils.translation import ugettext as _
 
 class HeaderPlugin(CMSPluginBase):
@@ -57,6 +62,21 @@ class SocialMediaPlugin(CMSPluginBase):
         context.update({'instance':instance},)
         return context
 
+
+class BloqueMInline(OrderableStackedInline):
+    model = bloqueCarroM
+
+class carroMPlugin(CMSPluginBase):
+    model = carroManual
+    inlines = [BloqueMInline, ]
+    name = _("Tuk Tuk Carro Manual") # Name of the plugin
+    render_template = "plugins/carroManual.html" # template to render the plugin with
+
+    def render(self, context, instance, placeholder):
+        context.update({'instance':instance},)
+        return context
+
 plugin_pool.register_plugin(CabezeraPlugin) # register the plugin
 plugin_pool.register_plugin(HeaderPlugin)
 plugin_pool.register_plugin(SocialMediaPlugin)
+plugin_pool.register_plugin(carroMPlugin)

@@ -22,6 +22,21 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'cmsTuk', ['botonIcono'])
 
+        # Adding model 'plantillasCorreo'
+        db.create_table(u'cmsTuk_plantillascorreo', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('nombre', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('html', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['plantillasCorreo'])
+
+        # Adding model 'correo'
+        db.create_table(u'cmsTuk_correo', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('correo', self.gf('django.db.models.fields.CharField')(max_length=255)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['correo'])
+
         # Adding model 'headerPlugin'
         db.create_table(u'cmsplugin_headerplugin', (
             (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
@@ -45,6 +60,66 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'cmsTuk', ['headerPlugin'])
 
+        # Adding model 'cabezeraPlugin'
+        db.create_table(u'cmsplugin_cabezeraplugin', (
+            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('encabezado', self.gf('django.db.models.fields.TextField')()),
+            ('fondo', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
+            ('correo', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('destino', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cmsTuk.correo'], null=True, blank=True)),
+            ('plantilla', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cmsTuk.plantillasCorreo'], null=True, blank=True)),
+            ('placeholderEmail', self.gf('django.db.models.fields.CharField')(default='Tu direcci\xc3\xb3n de e@mail.com para informarte', max_length=255, null=True, blank=True)),
+            ('subtexto', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['cabezeraPlugin'])
+
+        # Adding model 'idioma'
+        db.create_table(u'cmsTuk_idioma', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('idioma', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('codigo', self.gf('django.db.models.fields.CharField')(max_length=5)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['idioma'])
+
+        # Adding model 'socialmediaPlugin'
+        db.create_table(u'cmsplugin_socialmediaplugin', (
+            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+            ('videoYT', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('canal', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('twitter', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('twitterText', self.gf('django.db.models.fields.CharField')(max_length=110, null=True, blank=True)),
+            ('via', self.gf('django.db.models.fields.CharField')(max_length=30, null=True, blank=True)),
+            ('idioma', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cmsTuk.idioma'], null=True, blank=True)),
+            ('facebook', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('foursquare', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('googleplus', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['socialmediaPlugin'])
+
+        # Adding model 'carroManual'
+        db.create_table(u'cmsplugin_carromanual', (
+            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('texto', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('mostrar', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('comentario', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('tituloF', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('textoF', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('tituloBoton', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+        ))
+        db.send_create_signal(u'cmsTuk', ['carroManual'])
+
+        # Adding model 'bloqueCarroM'
+        db.create_table(u'cmsTuk_bloquecarrom', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('inline_ordering_position', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
+            ('carroM', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cmsTuk.carroManual'], null=True, blank=True)),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+            ('texto', self.gf('django.db.models.fields.TextField')()),
+        ))
+        db.send_create_signal(u'cmsTuk', ['bloqueCarroM'])
+
 
     def backwards(self, orm):
         # Deleting model 'botonClass'
@@ -53,8 +128,29 @@ class Migration(SchemaMigration):
         # Deleting model 'botonIcono'
         db.delete_table(u'cmsTuk_botonicono')
 
+        # Deleting model 'plantillasCorreo'
+        db.delete_table(u'cmsTuk_plantillascorreo')
+
+        # Deleting model 'correo'
+        db.delete_table(u'cmsTuk_correo')
+
         # Deleting model 'headerPlugin'
         db.delete_table(u'cmsplugin_headerplugin')
+
+        # Deleting model 'cabezeraPlugin'
+        db.delete_table(u'cmsplugin_cabezeraplugin')
+
+        # Deleting model 'idioma'
+        db.delete_table(u'cmsTuk_idioma')
+
+        # Deleting model 'socialmediaPlugin'
+        db.delete_table(u'cmsplugin_socialmediaplugin')
+
+        # Deleting model 'carroManual'
+        db.delete_table(u'cmsplugin_carromanual')
+
+        # Deleting model 'bloqueCarroM'
+        db.delete_table(u'cmsTuk_bloquecarrom')
 
 
     models = {
@@ -79,6 +175,14 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slot': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'})
         },
+        u'cmsTuk.bloquecarrom': {
+            'Meta': {'ordering': "('inline_ordering_position',)", 'object_name': 'bloqueCarroM'},
+            'carroM': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['cmsTuk.carroManual']", 'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'inline_ordering_position': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'texto': ('django.db.models.fields.TextField', [], {}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'})
+        },
         u'cmsTuk.botonclass': {
             'Meta': {'object_name': 'botonClass'},
             'clase': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
@@ -87,6 +191,34 @@ class Migration(SchemaMigration):
         u'cmsTuk.botonicono': {
             'Meta': {'object_name': 'botonIcono'},
             'icono': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+        },
+        u'cmsTuk.cabezeraplugin': {
+            'Meta': {'object_name': 'cabezeraPlugin', 'db_table': "u'cmsplugin_cabezeraplugin'", '_ormbases': ['cms.CMSPlugin']},
+            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
+            'correo': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'destino': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['cmsTuk.correo']", 'null': 'True', 'blank': 'True'}),
+            'encabezado': ('django.db.models.fields.TextField', [], {}),
+            'fondo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'placeholderEmail': ('django.db.models.fields.CharField', [], {'default': "'Tu direcci\\xc3\\xb3n de e@mail.com para informarte'", 'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'plantilla': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['cmsTuk.plantillasCorreo']", 'null': 'True', 'blank': 'True'}),
+            'subtexto': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'cmsTuk.carromanual': {
+            'Meta': {'object_name': 'carroManual', 'db_table': "u'cmsplugin_carromanual'", '_ormbases': ['cms.CMSPlugin']},
+            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
+            'comentario': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'mostrar': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'texto': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'textoF': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'tituloBoton': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'tituloF': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'})
+        },
+        u'cmsTuk.correo': {
+            'Meta': {'object_name': 'correo'},
+            'correo': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         u'cmsTuk.headerplugin': {
@@ -109,6 +241,31 @@ class Migration(SchemaMigration):
             'texto2': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
             'texto3': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
             'titulo': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'cmsTuk.idioma': {
+            'Meta': {'object_name': 'idioma'},
+            'codigo': ('django.db.models.fields.CharField', [], {'max_length': '5'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'idioma': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'cmsTuk.plantillascorreo': {
+            'Meta': {'object_name': 'plantillasCorreo'},
+            'html': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'nombre': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'cmsTuk.socialmediaplugin': {
+            'Meta': {'object_name': 'socialmediaPlugin', 'db_table': "u'cmsplugin_socialmediaplugin'", '_ormbases': ['cms.CMSPlugin']},
+            'canal': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
+            'facebook': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'foursquare': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'googleplus': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'idioma': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['cmsTuk.idioma']", 'null': 'True', 'blank': 'True'}),
+            'twitter': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'twitterText': ('django.db.models.fields.CharField', [], {'max_length': '110', 'null': 'True', 'blank': 'True'}),
+            'via': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
+            'videoYT': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'})
         }
     }
 

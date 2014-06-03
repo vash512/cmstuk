@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from cms.models import CMSPlugin
 from django.db import models
+from inline_ordering.models import Orderable
 
 class botonClass(models.Model):
     clase = models.CharField(max_length=255)
@@ -106,3 +107,25 @@ class socialmediaPlugin(CMSPlugin):
         null=True, blank=True)
     def __unicode__(self):
         return self.canal
+
+class carroManual(CMSPlugin):
+    titulo      = models.CharField(max_length=255, null=True, blank=True)
+    texto       = models.TextField(verbose_name="Texto principal", null=True,
+                  blank=True)
+    mostrar     = models.BooleanField(verbose_name="Cabezera", default=True,
+                  help_text="Mostrar los Datos de cabezera (Titulo y Texto)" )
+    comentario  = models.BooleanField(verbose_name="Formulario de Contacto", 
+                  help_text="Mostrar el formulario de Contacto al Final", default=True)
+    tituloF     = models.CharField(verbose_name="Titulo del formulario",max_length=255,
+                  null=True, blank=True)
+    textoF      = models.TextField(verbose_name="Texto del Formulario", null=True,
+                  blank=True)
+    tituloBoton = models.CharField(verbose_name="Texto del boton",max_length=255,
+                  null=True, blank=True)
+
+class bloqueCarroM(Orderable):
+    carroM = models.ForeignKey('carroManual',
+                  null=True, blank=True)
+    titulo = models.CharField(max_length=255, null=True, blank=True,
+             help_text="Puede ser opcional" )
+    texto  = models.TextField(verbose_name="Texto principal")

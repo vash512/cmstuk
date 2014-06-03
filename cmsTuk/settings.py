@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'cms.plugins.video',
     'cms.plugins.twitter',
     'cmsTuk',
+    #'cmsplugin_gallery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,6 +96,15 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'es-mx'
+
+CMS_LANGUAGES = {
+    'default': {
+        'fallbacks': ['es-mx',],
+        'redirect_on_fallback':True,
+        'public': False,
+        'hide_untranslated': False,
+    }
+}
 
 TIME_ZONE = 'America/Mexico_City'
 
